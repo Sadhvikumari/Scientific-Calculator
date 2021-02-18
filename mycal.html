@@ -1,0 +1,189 @@
+<DOCTYPE HTML>
+<html>
+<head>
+<style>
+table,tr{ border:5px solid black;
+border-radius:15px;}
+.s3 {
+  background-color: #4CAF50; 
+  border:5px solid black ;
+  color: white;
+  padding: 6px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+border-radius:15px;
+}
+.clear:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.cals:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.s2 {
+  background-color: #4CAF50; /* Green */
+  border: 5px solid black;
+  color: white;
+  padding: 6px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+border-radius:15px;
+}
+.calci:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.s1 {
+  background-color: #4CAF50; /* Green */
+  border:5px solid black ;
+  color: white;
+  padding: 6px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 2px 1px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+border-radius:15px;
+}
+.sty {
+  background-color: white;
+  color: black;
+  border: 5px solid black;
+}
+
+.sty:hover {
+  background-color: #555555;
+  color: white;
+}
+.calc {
+  background-color: #C2CAD0;
+  color: black;
+  border: 5px solid black;
+}
+
+.calc:hover {
+  background-color: #555555;
+  color: white;
+}
+
+#d1
+{
+border:1px solid black;
+margin:10;
+width:100%;
+background-color:#272727;
+}
+input{
+width:50;
+height:50;
+margin:2;
+font-size:25;
+background-color:#E3E2DF;
+}
+.display{
+width:310;
+height:50;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+var final=' ';
+$(".calc").on('click',function(){
+if($(this).attr('data-role')!='operator'){
+$(".display").val($(".display").val()+$(this).val());
+}
+else{
+if($(".display").val()!=''){
+$(".display").val($(".display").val()+ $(this).val());
+}
+}
+});
+$(".clear").on('click',function(){
+$(".display").val(' ');
+});
+$(".calci").on('click',function(){
+var expression=$(".display").val();
+final=eval(expression);
+$(".display").val(final);
+});
+$('#sin').click(function(){
+  $(".display").val(Math.sin((22/7)/180*$(".display").val()).toFixed(2));
+});
+$('#cos').click(function(){
+$(".display").val(Math.cos((22/7)/180*$(".display").val()).toFixed(2));
+});
+$('#tan').click(function(){
+$(".display").val(Math.tan((22/7)/180*$(".display").val()).toFixed(2));
+});
+$('#log').click(function(){
+$(".display").val(Math.log($(".display").val()).toFixed(2));
+});
+$('#sqrt').click(function(){
+$(".display").val(Math.sqrt($(".display").val()));
+});
+});
+</script>
+
+</head>
+<body><center><div id="d1">
+<center><h1 style="color:white";><u>CALCULATOR</u></h1></center>
+<table>
+<tr>
+<td colspan="5"><input type="text" class="display" name="Display" size="60"></td>
+</tr>
+<tr>
+<td><input type="button" class="s1 sty" id="sin" value="sin"></td>
+<td><input type="button" class="s1 calc" data-role="number" value="1"></td>
+<td><input type="button" class="s1 calc" data-role="number" value="2"></td>
+<td><input type="button" class="s1 calc" data-role="number" value="3"></td>
+<td><input type="button" class="s1 calc" data-role="operator" value="+"></td>
+</tr>
+<tr>
+<td><input type="button" class="s1 sty" id="cos" value="cos"></td>
+<td><input type="button" class="s1 calc" data-role="number" value="4"></td>
+<td><input type="button" class="s1 calc" data-role="number" value="5"></td>
+<td><input type="button" class="s1 calc" data-role="number" value="6"></td>
+<td><input type="button" class="s1 calc" data-role="operator" value="-"></td>
+</tr>
+<tr>
+<td><input type="button" class="s1 sty" id="tan" value="tan"></td>
+<td><input type="button" class="s1 calc" data-role="number" value="7"></td>
+<td><input type="button" class="s1 calc" data-role="number" value="8"></td>
+<td><input type="button" class="s1 calc" data-role="number" value="9"></td>
+<td><input type="button" class="s1 calc" data-role="operator" value="*"></td>
+</tr>
+<tr>
+<td><input type="button"class="s1 sty" id="sqrt" value="sqrt"></td>
+<td></td>
+<td><input type="button" class="s1 calc" data-role="number" value="0"></td>
+<td></td>
+<td><input type="button" class="s1 calc" data-role="operator" value="/"></td>
+</tr>
+<tr>
+<td><input type="button" id="log" class="s3 cals" value="log"></td>
+<td colspan="3"><input type="button" class="s2 calci"  value="=" style="width:170px;"></td>
+<td><input type="button" class="s2  clear" value="C"></td>
+</tr>
+<tr>
+
+</tr>
+
+</table></center></div>
+
+
+</body>
+</html>
